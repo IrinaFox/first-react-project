@@ -1,0 +1,20 @@
+ul{
+    list-style:none;
+}
+
+ul a{
+    float: left;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 0 25px;
+    line-height: 60px;
+    display: block;
+    background: #BBBBBB;
+    color: #000000;
+    border-right: 1px solid black;
+}
+
+ul a:hover{
+    background: #dce1dc;
+    transition: 1s;
+}
