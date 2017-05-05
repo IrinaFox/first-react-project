@@ -1,8 +1,8 @@
-ul{
+ul {
     list-style:none;
 }
 
-ul a{
+ul a {
     float: left;
     text-decoration: none;
     font-size: 14px;
@@ -14,7 +14,16 @@ ul a{
     border-right: 1px solid black;
 }
 
-ul a:hover{
+ul a:hover {
     background: #dce1dc;
     transition: 1s;
+}
+
+.sayHello {
+    display: inline-block;
+    list-style:none;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 0 25px;
+    line-height: 60px;
 }
