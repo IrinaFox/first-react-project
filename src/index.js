@@ -4,6 +4,6 @@ import './index.css';
 import Page from './Page/Page.js';
 
 ReactDOM.render(
-	  <Page />,
-	  document.getElementById('root')
+    <Page />,
+    document.getElementById('root')
 );

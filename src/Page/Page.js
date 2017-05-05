@@ -21,15 +21,15 @@ function Menu () {
                 <li>
                     <a>Main</a>
                 </li>
-	            <li>
+                <li>
                     <a>Info</a>
-	            </li>
-	            <li>
+                </li>
+                <li>
 		            <a>About us</a>
-	            </li>
-	            <li>
-	                <a>Contacts</a>
-	            </li>
+                </li>
+                <li>
+                    <a>Contacts</a>
+                </li>
                 <li>
                     <a>Calendary</a>
                 </li>
