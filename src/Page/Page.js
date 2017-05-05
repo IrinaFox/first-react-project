@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './Page.css';
 
 const username = {
-	firstName: 'Boris',
-	lastName: 'Akunin'
+    firstName: 'Boris',
+    lastName: 'Akunin'
 };
 
 function SayHello () {
@@ -15,13 +15,13 @@ function SayHello () {
 }
 
 function Menu () {
-    return (
+	return (
 		<div>
-			<ul>
-				<li>
-					<a>Main</a>
-				</li>
-				<li>
+            <ul>
+			    <li>
+			        <a>Main</a>
+			    </li>
+			    <li>
 					<a>Info</a>
 				</li>
 				<li>
@@ -31,30 +31,30 @@ function Menu () {
 					<a>Contacts</a>
 				</li>
 				<li>
-					<a>Calendary</a>
-				</li>
-			</ul>
-		</div>
-	);
+				    <a>Calendary</a>
+		        </li>
+		    </ul>
+	    </div>
+    );
 }
 
 function CurrentTime (props){
-	return (
-		<h1>Time: {props.date.toLocaleTimeString()}</h1>
+    return (
+	    <h1>Time: {props.date.toLocaleTimeString()}</h1>
 	);
 }
 
 class Page extends React.Component {
     constructor (props) {
-		super(props);
-		this.state = {date: new Date()};
-	}
+        super(props);
+	    this.state = {date: new Date()};
+    }
 
-	componentDidMount () {
-		this.timerID = setInterval(
-			() => this.tick(),
-			1000
-		);
+    componentDidMount () {
+        this.timerID = setInterval(
+	    () => this.tick(),
+	        1000
+	    );
 	}
 
 	componentWillUnmount () {
