@@ -7,41 +7,41 @@ const username = {
 };
 
 function SayHello () {
-	return (
-		<div className="sayHello">
-			Hello, {username.firstName}!
-		</div>
-	);
+    return (
+        <div className="sayHello">
+            Hello, {username.firstName}!
+        </div>
+    );
 }
 
 function Menu () {
-	return (
-		<div>
+    return (
+        <div>
             <ul>
-			    <li>
-			        <a>Main</a>
-			    </li>
-			    <li>
-					<a>Info</a>
-				</li>
-				<li>
-					<a>About us</a>
-				</li>
-				<li>
-					<a>Contacts</a>
-				</li>
-				<li>
-				    <a>Calendary</a>
-		        </li>
-		    </ul>
-	    </div>
+                <li>
+                    <a>Main</a>
+                </li>
+	            <li>
+                    <a>Info</a>
+	            </li>
+	            <li>
+		            <a>About us</a>
+	            </li>
+	            <li>
+	                <a>Contacts</a>
+	            </li>
+                <li>
+                    <a>Calendary</a>
+                </li>
+            </ul>
+        </div>
     );
 }
 
 function CurrentTime (props){
     return (
-	    <h1>Time: {props.date.toLocaleTimeString()}</h1>
-	);
+        <h1>Time: {props.date.toLocaleTimeString()}</h1>
+    );
 }
 
 class Page extends React.Component {
@@ -57,25 +57,25 @@ class Page extends React.Component {
 	    );
 	}
 
-	componentWillUnmount () {
-		clearInterval(this.timerID);
-	}
+    componentWillUnmount () {
+        clearInterval(this.timerID);
+    }
 
-	tick () {
-		this.setState({
-			date: new Date()
-		});
-	}
+    tick () {
+        this.setState({
+            date: new Date()
+        });
+    }
 
-	render () {
-		return (
-			<div>
-				<CurrentTime date={this.state.date} />
-				<Menu />
-				<SayHello />
-			</div>
-		);
-	}
+    render () {
+        return (
+            <div>
+                <CurrentTime date={this.state.date} />
+                <Menu />
+                <SayHello />
+            </div>
+        );
+    }
 }
 
 export default Page;
