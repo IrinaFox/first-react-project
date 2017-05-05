@@ -15,7 +15,7 @@ function SayHello () {
 }
 
 function Menu () {
-	return (
+    return (
 		<div>
 			<ul>
 				<li>
@@ -45,7 +45,7 @@ function CurrentTime (props){
 }
 
 class Page extends React.Component {
-	constructor (props) {
+    constructor (props) {
 		super(props);
 		this.state = {date: new Date()};
 	}
