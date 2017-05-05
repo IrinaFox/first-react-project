@@ -25,7 +25,7 @@ function Menu () {
                     <a>Info</a>
                 </li>
                 <li>
-		            <a>About us</a>
+                    <a>About us</a>
                 </li>
                 <li>
                     <a>Contacts</a>
