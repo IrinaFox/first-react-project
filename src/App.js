@@ -7,12 +7,12 @@ class App extends React.Component {
     render() {
         return (
             <div>
-				<Page />
-				<Form />
-				<Toggle />
-			</div>
-		);
-	}
+                <Page />
+                <Form />
+                <Toggle />
+            </div>
+        );
+    }
 }
 
 export default App;
