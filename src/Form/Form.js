@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Form.css';
 
 class Form extends React.Component {
 	constructor(props) {
@@ -25,7 +26,7 @@ class Form extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className="myForm">
 				<input
 					type="text"
 					placeholder="Enter your name"

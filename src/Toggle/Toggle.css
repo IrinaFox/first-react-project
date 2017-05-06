@@ -1,9 +1,4 @@
-ul {
-    list-style:none;
-    clear: both;
-}
-
-ul a {
+a {
     float: left;
     text-decoration: none;
     font-size: 14px;
@@ -13,9 +8,4 @@ ul a {
     background: #BBBBBB;
     color: #000000;
     border-right: 1px solid black;
-}
-
-ul a:hover {
-    background: #dce1dc;
-    transition: 1s;
 }

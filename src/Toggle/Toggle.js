@@ -1,4 +1,14 @@
 import React, { Component } from 'react';
+import Time from '../Time/Time.js';
+import './Toggle.css';
+
+function SayHello (props) {
+    return (
+        <div className="sayHello">
+            Hello, {props.userName}!
+        </div>
+    );
+}
 
 class Toggle extends React.Component {
 	constructor(props) {
@@ -16,9 +26,10 @@ class Toggle extends React.Component {
 	render() {
 		return (
 			<div>
-				<button onClick={this.handleClick}>
+				<a onClick={this.handleClick}>
 	                {this.state.isToggleOn ? 'Show time' : 'Hide time'}
-				</button>
+				</a>
+            {this.state.isToggleOn ? '' : <Time />}
 			</div>
 		);
 	}

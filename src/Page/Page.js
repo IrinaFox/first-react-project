@@ -1,20 +1,6 @@
 import React, { Component } from 'react';
 import './Page.css';
-import Time from '../Time/Time.js';
-
-
-const username = {
-    firstName: 'Boris',
-    lastName: 'Akunin'
-};
-
-function SayHello () {
-    return (
-        <div className="sayHello">
-            Hello, {username.firstName}!
-        </div>
-    );
-}
+import Toggle from '../Toggle/Toggle.js';
 
 function Menu () {
     return (
@@ -32,9 +18,6 @@ function Menu () {
                 <li>
                     <a>Contacts</a>
                 </li>
-                <li>
-                    <a>Calendary</a>
-                </li>
             </ul>
         </div>
     );
@@ -44,9 +27,8 @@ class Page extends React.Component {
     render () {
         return (
             <div>
-                <Time />
                 <Menu />
-                <SayHello />
+                <Toggle />
             </div>
         );
     }
