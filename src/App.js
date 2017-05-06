@@ -4,7 +4,7 @@ import Form from './Form/Form.js';
 import Toggle from './Toggle/Toggle.js';
 
 class App extends React.Component {
-	render() {
+    render() {
         return (
             <div>
 				<Page />
