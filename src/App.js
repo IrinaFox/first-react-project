@@ -5,8 +5,8 @@ import Toggle from './Toggle/Toggle.js';
 
 class App extends React.Component {
 	render() {
-		return (
-			<div>
+        return (
+            <div>
 				<Page />
 				<Form />
 				<Toggle />
