@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './Page.css';
+import Time from '../Time/Time.js';
+
 
 const username = {
     firstName: 'Boris',
@@ -38,39 +40,11 @@ function Menu () {
     );
 }
 
-function CurrentTime (props){
-    return (
-        <h1>Time: {props.date.toLocaleTimeString()}</h1>
-    );
-}
-
 class Page extends React.Component {
-    constructor (props) {
-        super(props);
-	    this.state = {date: new Date()};
-    }
-
-    componentDidMount () {
-        this.timerID = setInterval(
-	    () => this.tick(),
-	        1000
-	    );
-	}
-
-    componentWillUnmount () {
-        clearInterval(this.timerID);
-    }
-
-    tick () {
-        this.setState({
-            date: new Date()
-        });
-    }
-
     render () {
         return (
             <div>
-                <CurrentTime date={this.state.date} />
+                <Time />
                 <Menu />
                 <SayHello />
             </div>
