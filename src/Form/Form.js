@@ -14,7 +14,6 @@ class Form extends React.Component {
 	}
 
 	handleSubmit(event) {
-
 		if (this.state.value.length >= 2) {
 			let sayHello = 'Hello, ' + this.state.value + '!!!';
 			this.setState({sayHello: sayHello});
