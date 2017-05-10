@@ -1,0 +1,24 @@
+form {
+    border: 1px #000000 solid;
+    background-color: rgba(181, 253, 255, 0.19);
+    text-align: center;
+}
+
+table, tr, td {
+    border: 1px #000000 solid;
+}
+
+table{
+    width: 300px;
+    border-collapse: collapse;
+    padding: 5px;
+    background-color: rgba(0, 0, 1, 0.09);
+}
+
+td {
+    padding: 10px;
+}
+
+tr:hover {
+    background-color: rgb(255, 255, 255);
+}

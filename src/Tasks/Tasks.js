@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Tasks.css';
 
 class CreationNewTaskForm extends React.Component {
     constructor (props) {
@@ -56,6 +57,7 @@ class CreationNewTaskForm extends React.Component {
         return (
             <div>
                 <form>
+                    <h1>Create new task</h1>
                     <p><input
                         type="text"
                         placeholder="Enter task name"
@@ -72,6 +74,13 @@ class CreationNewTaskForm extends React.Component {
                     <p><input type="button" value="Create" onClick={this.createTask}/></p>
                 </form>
                 <table>
+                    <thead>
+                        <tr>
+                            <td>№</td>
+                            <td>NAME</td>
+                            <td>DESCRIPTION</td>
+                        </tr>
+                    </thead>
                     <tbody>
                         {this.state.taskList.map((task, i) => <Task
                             key = {i} task = {task}/>)}
@@ -86,6 +95,7 @@ class Task extends React.Component {
     render () {
         return (
                 <tr key={this.props.task.id}>
+                    <td> {this.props.task.id} </td>
                     <td> {this.props.task.name} </td>
                     <td> {this.props.task.description} </td>
                 </tr>
