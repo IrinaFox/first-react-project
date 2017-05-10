@@ -9,12 +9,14 @@ class CreationNewTaskForm extends React.Component {
             taskItems:[],
             taskID: '1',
             newTaskName: '',
-            newTaskDescription: ''
+            newTaskDescription: '',
+            newTaskStatus: 'pending'
         };
 
         this.taskNameWritten = this.taskNameWritten.bind(this);
         this.taskDescriptionWritten = this.taskDescriptionWritten.bind(this);
         this.createTask = this.createTask.bind(this);
+        this.taskStatusSelected = this.taskStatusSelected.bind(this);
     }
 
     taskNameWritten (event) {
@@ -25,24 +27,16 @@ class CreationNewTaskForm extends React.Component {
         this.setState({newTaskDescription: event.target.value});
     }
 
-    renderAllTasks () {
-        const taskItems = this.state.taskList.map((task) =>
-                <tr key={task.id}>
-                    <td> {task.name} </td>
-                    <td> {task.description} </td>
-                </tr>
-        );
-
-        this.setState({taskItems: taskItems});
-
-        console.log(taskItems);
+    taskStatusSelected (event) {
+        this.setState({newTaskStatus:event.target.value});
     }
 
     createTask () {
         let newTask = {
                 id: this.state.taskID,
                 name: this.state.newTaskName,
-                description: this.state.newTaskDescription
+                description: this.state.newTaskDescription,
+                status: this.state.newTaskStatus
             },
             newTaskID = Number(this.state.taskID) + 1;
 
@@ -66,7 +60,7 @@ class CreationNewTaskForm extends React.Component {
                         type="text"
                         placeholder="Enter task description"
                         onChange={this.taskDescriptionWritten} /></p>
-                    <p><select>
+                    <p><select onChange={this.taskStatusSelected}>
                         <option disabled value="Choose status">Choose status</option>
                         <option defaultValue="pending">pending</option>
                         <option value="closed">closed</option>
@@ -79,6 +73,7 @@ class CreationNewTaskForm extends React.Component {
                             <td>№</td>
                             <td>NAME</td>
                             <td>DESCRIPTION</td>
+                            <td>STATUS</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -98,6 +93,7 @@ class Task extends React.Component {
                     <td> {this.props.task.id} </td>
                     <td> {this.props.task.name} </td>
                     <td> {this.props.task.description} </td>
+                    <td> {this.props.task.status} </td>
                 </tr>
         );
     }
