@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Page from './Page/Page.js';
 import Form from './Form/Form.js';
-import Tasks from './Tasks/Tasks.js';
+import CreationNewTaskForm from './Tasks/Tasks.js';
 
 class App extends React.Component {
     render() {
@@ -9,7 +9,7 @@ class App extends React.Component {
             <div>
                 <Page />
                 <Form />
-                <Tasks />
+                <CreationNewTaskForm />
             </div>
         );
     }

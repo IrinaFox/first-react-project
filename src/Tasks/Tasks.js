@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Tasks extends React.Component {
+class CreationNewTaskForm extends React.Component {
     constructor (props) {
         super(props);
         this.state = {
@@ -14,19 +14,6 @@ class Tasks extends React.Component {
         this.taskNameWritten = this.taskNameWritten.bind(this);
         this.taskDescriptionWritten = this.taskDescriptionWritten.bind(this);
         this.createTask = this.createTask.bind(this);
-    }
-
-    componentDidMount () {
-        let localData = JSON.parse(localStorage.getItem('taskList'));
-        if (localData) {
-            this.setState({
-                taskList: localData
-            });
-        }
-    }
-    componentDidUpdate () {
-        let storageTaskList = JSON.stringify(this.state.taskList);
-        localStorage.setItem('taskList', storageTaskList);
     }
 
     taskNameWritten (event) {
@@ -48,24 +35,19 @@ class Tasks extends React.Component {
         this.setState({taskItems: taskItems});
 
         console.log(taskItems);
-        return taskItems;
     }
 
     createTask () {
-        let newTask = JSON.stringify({
+        let newTask = {
                 id: this.state.taskID,
                 name: this.state.newTaskName,
                 description: this.state.newTaskDescription
-            }),
+            },
             newTaskID = Number(this.state.taskID) + 1;
 
-        console.log(this.state.taskList);
-
-        let newTaskList = this.state.taskList.slice();
-        newTaskList.unshift(newTask);
+        this.state.taskList.push(newTask);
 
         this.setState({
-            taskList: newTaskList,
             taskID: newTaskID //newID for next new task
         });
     }
@@ -88,11 +70,11 @@ class Tasks extends React.Component {
                         <option value="closed">closed</option>
                     </select></p>
                     <p><input type="button" value="Create" onClick={this.createTask}/></p>
-                    <p>{this.state.taskItems}</p>
                 </form>
                 <table>
                     <tbody>
-                        {this.state.taskItems}
+                        {this.state.taskList.map((task, i) => <Task
+                            key = {i} task = {task}/>)}
                     </tbody>
                 </table>
             </div>
@@ -100,4 +82,15 @@ class Tasks extends React.Component {
     }
 }
 
-export default Tasks;
+class Task extends React.Component {
+    render () {
+        return (
+                <tr key={this.props.task.id}>
+                    <td> {this.props.task.name} </td>
+                    <td> {this.props.task.description} </td>
+                </tr>
+        );
+    }
+}
+
+export default CreationNewTaskForm;
