@@ -17,6 +17,7 @@ class CreationNewTaskForm extends React.Component {
         this.taskDescriptionWritten = this.taskDescriptionWritten.bind(this);
         this.createTask = this.createTask.bind(this);
         this.taskStatusSelected = this.taskStatusSelected.bind(this);
+        this.deleteTask = this.deleteTask.bind(this);
     }
 
     taskNameWritten (event) {
@@ -47,6 +48,24 @@ class CreationNewTaskForm extends React.Component {
         });
     }
 
+    deleteTask (event) {
+        let deletedTaskId = event.target.name,
+            index,
+            i;
+
+        for (i = 0; i < this.state.taskList.length; i++) {
+            let task = this.state.taskList[i];
+
+            if (task.id == deletedTaskId) {
+                index = this.state.taskList.indexOf(task);
+                this.state.taskList.splice(index, 1);
+                break;
+            }
+        }
+
+        this.setState({taskList: this.state.taskList});
+    }
+
     render () {
         return (
             <div>
@@ -55,7 +74,7 @@ class CreationNewTaskForm extends React.Component {
                     <p><input
                         type="text"
                         placeholder="Enter task name"
-                        onChange={this. taskNameWritten} /></p>
+                        onChange={this.taskNameWritten} /></p>
                     <p><input
                         type="text"
                         placeholder="Enter task description"
@@ -74,11 +93,14 @@ class CreationNewTaskForm extends React.Component {
                             <td>NAME</td>
                             <td>DESCRIPTION</td>
                             <td>STATUS</td>
+                            <td>X</td>
                         </tr>
                     </thead>
                     <tbody>
                         {this.state.taskList.map((task, i) => <Task
-                            key = {i} task = {task}/>)}
+                            deleteTask={this.deleteTask}
+                            key={i}
+                            task={task}/>)}
                     </tbody>
                 </table>
             </div>
@@ -94,6 +116,12 @@ class Task extends React.Component {
                     <td> {this.props.task.name} </td>
                     <td> {this.props.task.description} </td>
                     <td> {this.props.task.status} </td>
+                    <td title="delete">
+                        <input type="button"
+                            name={this.props.task.id}
+                            value="X"
+                            onClick={this.props.deleteTask}/>
+                    </td>
                 </tr>
         );
     }
